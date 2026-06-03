@@ -1,0 +1,28 @@
+# Environment files
+.env
+.env.local
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# LARGE FILES - MOST IMPORTANT
+*.pkl
+*.pckl
+*.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
