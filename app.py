@@ -13,13 +13,13 @@ base_dir = os.path.dirname(__file__)
 movies_dict_path = os.path.join(base_dir, "movies_dict.pkl")
 similarity_path = os.path.join(base_dir, "similarity.pckl")
 
-# --- DOWNLOAD SIMILARITY FILE ---
 if not os.path.exists(similarity_path):
-    # ---> DROPBOX LINK <---
-    url = "https://www.dropbox.com/scl/fi/qca6ys9pax1agsp9vlrvk/similarity.pckl?rlkey=u4574zhcmi996xyyv9wd38h9r&st=545zcx6u&dl=1"
+    # --->  HUGGING FACE LINK  <---
+    url = "https://huggingface.co/sohaillansarii/similarity-data/resolve/main/similarity.pckl"
     response = requests.get(url)
     with open(similarity_path, "wb") as f:
         f.write(response.content)
+
 
 with open(movies_dict_path, "rb") as f:
     movies_dict = pickle.load(f)
@@ -40,7 +40,6 @@ def fetch_poster(movie_title):
             return f"https://image.tmdb.org/t/p/w500/{poster_path}"
             
     return "https://via.placeholder.com/500x750.png?text=No+Poster"
-
 
 def recommend(movie_name):
     movie_index = movies[movies['title'] == movie_name].index[0]
