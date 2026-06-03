@@ -15,18 +15,12 @@ similarity_path = os.path.join(base_dir, "similarity.pckl")
 
 # --- DOWNLOAD SIMILARITY FILE ---
 if not os.path.exists(similarity_path):
-    # This special format forces Google Drive to download the file, not show HTML
-    file_id = "1XSQJM_F7NoCcLS6Y980-Ocpe4hQYEoMZ"
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    
-    # Bypasses the large file warning screen
-    session = requests.Session()
-    response = session.get(url, params={'confirm': 't'})
-    
+    # ---> DROPBOX LINK <---
+    url = "https://www.dropbox.com/scl/fi/qca6ys9pax1agsp9vlrvk/similarity.pckl?rlkey=u4574zhcmi996xyyv9wd38h9r&st=545zcx6u&dl=1"
+    response = requests.get(url)
     with open(similarity_path, "wb") as f:
         f.write(response.content)
 
-# --- LOAD DATA ---
 with open(movies_dict_path, "rb") as f:
     movies_dict = pickle.load(f)
 movies = pd.DataFrame(movies_dict)
@@ -34,7 +28,7 @@ movies = pd.DataFrame(movies_dict)
 with open(similarity_path, "rb") as f:
     similarity = pickle.load(f)
 
-# --- FETCH POSTER ---
+
 def fetch_poster(movie_title):
     url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={movie_title}"
     response = requests.get(url)
@@ -47,7 +41,7 @@ def fetch_poster(movie_title):
             
     return "https://via.placeholder.com/500x750.png?text=No+Poster"
 
-# --- RECOMMEND ---
+
 def recommend(movie_name):
     movie_index = movies[movies['title'] == movie_name].index[0]
     distances = similarity[movie_index]
@@ -63,7 +57,7 @@ def recommend(movie_name):
         
     return recommended_movies, recommended_posters
 
-# --- UI ---
+
 st.title("🎬 Movie Recommender System")
 
 selected_movie_name = st.selectbox(
