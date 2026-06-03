@@ -18,7 +18,7 @@ similarity = pickle.load(open('similarity.pckl', 'rb'))
 
 
 def fetch_poster(movie_title):
-    url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={movie_title}"
+ url = "https://drive.google.com/file/d/1XSQJM_F7NoCcLS6Y980-Ocpe4hQYEoMZ/view?usp=sharing"
     response = requests.get(url)
     data = response.json()
     
