@@ -35,8 +35,9 @@ The dataset contains information such as:
 1. Clone this repository
 
 2. Download similarity matrix  
-   Download `similarity.pckl` from Hugging Face and place it in the root directory:  
-   https://huggingface.co/sohaillansarii/similarity-data/resolve/main/similarity.pckl
+   Download `similarity.pckl` from Hugging Face and place it in the root directory:
+
+ [Download similarity.pckl](https://huggingface.co/sohaillansarii/similarity-data/resolve/main/similarity.pckl)
 
 3. Create virtual environment & install dependencies
 
