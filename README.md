@@ -6,28 +6,12 @@ Movie posters and metadata are dynamically fetched using the **TMDB API**, and t
 
 ---
 
-## 🚀 Live Demo
 
-🌐 [Open App](https://recommends-movies-112233.streamlit.app/)
+[Open App](https://recommends-movies-112233.streamlit.app/)
 ---
 
-## 🛠️ Tech Stack
-
-- **Python**
-- **Pandas**
-- **Scikit-learn**
-- **Streamlit**
-- **TMDB API**
-- **Pickle**
-
----
 
 ##  Dataset
-
-
-## 📊 Dataset
-
-Dataset used:
 
 [TMDB Movie Metadata Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 
@@ -43,37 +27,39 @@ The dataset contains information such as:
 
 ---
 
-## How It Works
 
-Setup Instructions
-1. Clone the repository
-bash
 
-git clone https://github.com/sohaillansarii/recommends-movies.git
-cd recommends-movies
-2. Download similarity matrix
-Download similarity.pckl from Hugging Face and place it in the root directory.
+
+### Setup Instructions
+
+1. Clone this repository
+
+[2. Download similarity matrix  
+   Download `similarity.pckl` from Hugging Face and place it in the root directory.](https://huggingface.co/sohaillansarii/similarity-data/resolve/main/similarity.pckl)
 
 3. Create virtual environment & install dependencies
-bash
 
+```bash
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
-4. Configure TMDB API
-Get your API key from TMDB
-Create a .env file:
-text
+```
 
+4. Configure TMDB API  
+   Get your API key from TMDB.
+
+   Create a `.env` file
+
+```env
 TMDB_API_KEY=your_api_key_here
+```
+
 5. Run the application
-bash
 
+```bash
 streamlit run app.py
-Live Demo
+```
+
+### Live Demo
+
 https://recommends-movies-112233.streamlit.app/
-
-License
-MIT
----
-
